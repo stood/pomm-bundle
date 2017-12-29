@@ -37,11 +37,11 @@ before_install:
 
     - php -S localhost:8080 -t tests/web &> /dev/null &
     - ln -fs parameters.yml.dist tests/app/config/parameters.yml
-    - test "$SYMFONY_VERSION" -eq 2 && composer require --no-update symfony/lts:^2
-    - test "$SYMFONY_VERSION" -eq 3 && composer require --no-update symfony/lts:^3
+    - test "$SYMFONY_VERSION" -eq 2 && composer require --no-update symfony/lts:^2||true
+    - test "$SYMFONY_VERSION" -eq 3 && composer require --no-update symfony/lts:^3||true
     - cd tests/
-    - test "$SYMFONY_VERSION" -eq 2 && composer require --no-update symfony/lts:^2
-    - test "$SYMFONY_VERSION" -eq 3 && composer require --no-update symfony/lts:^3
+    - test "$SYMFONY_VERSION" -eq 2 && composer require --no-update symfony/lts:^2||true
+    - test "$SYMFONY_VERSION" -eq 3 && composer require --no-update symfony/lts:^3||true
     - cd ..
 
 install:
