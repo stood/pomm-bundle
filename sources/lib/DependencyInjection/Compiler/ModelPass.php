@@ -58,19 +58,20 @@ class ModelPass implements DI\Compiler\CompilerPassInterface
 
             $old = $container->getDefinition($id);
             $old->setPublic(true);
+            $old->setAutowired(true);
             $container->removeDefinition($id);
             $container->addDefinitions([$id . '.pomm.inner' => $old]);
 
-            $container->register($id, $old->getClass())
+            $service = $container->register($id, $old->getClass())
                 ->setFactory([new DI\Reference($sessionId), $method])
                 ->addArgument($old->getClass())
             ;
 
-            if (version_compare(\Symfony\Component\HttpKernel\Kernel::VERSION, '3.3', '>=')) {
-                $container->setAlias($class,  $id);
-            } else {
-                $container->addAutowiringType($old->getClass());
+            if (version_compare(\Symfony\Component\HttpKernel\Kernel::VERSION, '3.3', '<')) {
+                $service->addAutowiringType($old->getClass());
             }
+
+            $container->setAlias($class,  $id);
         }
     }
 }
