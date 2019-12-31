@@ -1,4 +1,10 @@
 {
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/stood/pomm-symfony-bridge.git"
+        }
+    ],
     "require": {
         "symfony/symfony": "~5.0",
         "symfony/monolog-bundle": "~3.0",
@@ -6,9 +12,9 @@
         "sensio/framework-extra-bundle": "~3.0,>=3.0.2|~4.0|~5.0",
         "pomm-project/cli": "dev-master",
         "pomm-project/model-manager": "~2.0",
+        "pomm-project/foundation": "~2.0",
         "pomm-project/pomm-bundle": "dev-master",
-        "pomm-project/pomm-symfony-bridge": "~2.5",
-        "symfony/console":            "~2.5|~3.0|~4.0|~5.0"
+        "pomm-project/pomm-symfony-bridge": "dev-upgrade-sf-5"
     },
     "require-dev": {
         "behat/mink-extension": "~2.2",
