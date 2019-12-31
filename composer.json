@@ -1,4 +1,10 @@
 {
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "https://github.com/stood/pomm-symfony-bridge.git"
+    }
+  ],
   "name": "pomm-project/pomm-bundle",
   "type": "symfony-bundle",
   "description": "The Symfony2 bundle for Pomm2",
@@ -20,7 +26,7 @@
     "jdorn/sql-formatter": "~1.2",
     "pomm-project/model-manager": "~2.0",
     "pomm-project/cli": "~2.0",
-    "pomm-project/pomm-symfony-bridge": "~2.5",
+    "pomm-project/pomm-symfony-bridge": "dev-upgrade-sf-5",
     "symfony/framework-bundle": "~2.8|~3.0|~4.0|~5.0"
   },
   "require-dev": {
